@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices 2</title>
+    <script>
+      // Crée un algorithme qui va demandé à l'utilisateur un chiffre entre 0 et 10
+      // vérifier que le chiffre est bien entre 0 et 10
+      // si ce n'est pas le cas mettre un message en console pour dire qu'il y a une erreur
+      // si le chiffre est bien entre 0 et 10 je dois afficher tous les chiffres inférieur jusqu'à 0
+
+      let chiffre = prompt("Entre un chiffre");
+      if (chiffre > 10 || chiffre < 0) {
+        console.log("Le chiffre choisi n'est pas pris en charge");
+      } else {
+        // je peux utiliser la boucle while ou for
+        while (chiffre) {
+          console.log(chiffre);
+          chiffre--;
+        }
+
+        for (let i = chiffre; i >= 0; i--) {
+          console.log(i);
+        }
+      }
+
+      //   je veux que l'utilisateur devine un nombre
+      let guess = 8;
+      let proposition;
+      // 1er proposition
+    //   while (guess !== proposition) {
+    //     proposition = prompt("Entre ta proposition de chiffre") * 1;
+    //     if (proposition !== guess) {
+    //       console.log("Ce n' est pas mon chiffre à deviner");
+    //     }
+    //   }
+    //   console.log("Bravo ! vous avez deviné mon chiffre");
+
+      // seconde proposition
+      while (guess !== proposition) {
+        proposition = prompt("Entre ta proposition de chiffre") * 1;
+        if (proposition < guess) {
+          console.log("Plus");
+        } else if (proposition > guess) {
+          console.log("Moins");
+        }
+      }
+      console.log("Bravo ! vous avez deviné mon chiffre");
+    </script>
+  </head>
+  <body></body>
+</html>
