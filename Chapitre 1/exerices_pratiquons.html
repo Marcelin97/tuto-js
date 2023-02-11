@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices 4</title>
+    <script>
+        // crée une fonction qui permet de testé si un mot est un palindrome
+        function isPalindrome(word) {
+            // je crée une constante pour stocker mon mot
+            const reverseWord = word.split(' ').reverse().join('')
+            // que j'explose en tableau
+            
+            // j'inverse le tableau
+            // .reverse()
+            // .join('')
+            return word.toUpperCase() === reverseWord.toUpperCase()
+        }
+
+        const words = {
+            kayak: true,
+            SOS: true,
+            bonjour: false,
+            Kayak: true
+        }
+
+        for (let word in words) {
+            // console.log(word);
+            if (isPalindrome(word) !== words[word]) {
+                console.error(`isPalindrome ${word}`)
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

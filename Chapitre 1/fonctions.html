@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les fonctions</title>
+    <script>
+      // lorsque je commence une fonction avec le mot clé function
+      // la fonction sera défini globalement elle aura une porté global
+      function canDrive(age, pays) {
+        if ((age >= 18 && pays === "fr") || (age >= 16 && pays === "usa")) {
+          return true;
+        }
+        return false;
+      }
+      console.log(canDrive(16, "usa"));
+
+      // à l'inverse si je défini une fonction dans une constante alors il est intéréssant de l'utiliser dans bloc de code
+      // car sa porté sera limité
+      if (true) {
+        const canDrive = function (age, pays) {
+          if ((age >= 18 && pays === "fr") || (age >= 16 && pays === "usa")) {
+            return true;
+          }
+          return false;
+        }
+      }
+
+      function greeting(name){
+        console.log(`Bonjour ${name}`)
+      }
+      greeting('johan')
+
+    //   
+    function maFonction() {
+        // this fais référence à un object global qui est disponible au niveau de la page
+        console.log(this);
+    }
+    // on peut changé la valeur de this
+    maFonction.call(3)
+
+    const a = {
+        firstnname : 'John',
+        lastname : 'super',
+        fullname: function(){
+            // 
+            console.log(`${this.firstnname} ${this.lastname}`)
+        }
+    }
+    a.fullname()
+    // log est une méthode que l'on a sur l'object console
+    console.log('Hello'.toUpperCase())
+
+    // FONCTION FLECHEE
+    // la différence sera la comportement du mot this dans la fonction
+    // on ne peut pas changé this dans une fonction fléchée
+    const maSecondeFonction = (param1, param2) => {
+        console.log(param1, param2)
+    }
+    maSecondeFonction(2,3)
+
+    // je crée une fonction fléchée 
+    // cette fonction prend en paramètre un nombre et cela va nous dire si ce nombre est pair
+    // en second paramètre je passe une fonction (cb) et si le nombre est pair je veux exécuté cette fonction
+    const isPair = function (a, cb) {
+        // si c'est égale à zéro c'est divisible par 2
+        // si on a pas de reste divisé par 2 c'est que c'est un nombre pair
+        if (a % 2 === 0) {
+            // je crée une fonction qui sera le nombre
+            function cb(a){}
+        }
+    }
+    isPair(2, function (n){
+        console.log("Mon nombre est pair" + n)
+    })
+    </script>
+  </head>
+  <body></body>
+</html>
