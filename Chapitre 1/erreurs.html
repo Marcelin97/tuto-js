@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les erreurs</title>
+  </head>
+  <script>
+    // throw new Error
+    function setNotes(notes) {
+      if (!Array.isArray()) {
+        throw new Error("Les notes doivent être un tableau");
+      }
+      this.notes = notes;
+    }
+
+    // try...catch
+    // on peut capturer les erreurs
+    try {
+      // du code qui peut renvoyer des erreurs
+    } catch (e) {
+      // Ce code sera éxécuté si il y a eu une erreur
+    }
+  </script>
+  <body></body>
+</html>

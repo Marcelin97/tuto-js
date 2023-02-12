@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les classes</title>
     <script>
-      const a = { a: 2 };
-
+      const _notes = [];
+      const moyenne = (notes) => {
+        let sum = 0;
+        // je fais une boucle sur mon tableau
+        for (let note of _notes) {
+          // on ajoute la valeur suivante à chaque itération
+          sum = sum + note;
+        }
+        return sum / _notes.length;
+      };
       // ==> str >> peut avoir ses propres méthodes et ensuite elle a un prototype qui contient des méthodes particulière et ce prototype aura lui même les méthodes de l'objet
       // ==> str >> String.prototype >> Object.prototype
       // ==> c'est ce qu'on appel l'héritage
@@ -29,9 +37,34 @@
         }
 
         // on imagine qu'on veut ajouter des notes à nos élèves
-        setNotes(notes) {
-          this.notes = notes;
+        // je crée cette méthode
+        // setNotes(notes) {
+        //   this.notes = notes;
+        // }
+
+        // SETTERS =>
+        // a la place de cette fonction je peux crée des setters
+        // les setters vont être appelé automatiquement
+        set notes(valeur) {
+          if (Array.isArray(valeur)) {
+            this._notes = valeur;
+          }
         }
+
+        // GETTERS =>
+        // je peux crée un moyen de récupérer le nom d'un utilisateur
+        get name() {
+          return `${this.firstname}`;
+        }
+
+        // je peux avoir une méthode qui peut dire si l'élève passe son année
+        canPass() {
+          return moyenne(this.notes) >= Student.moyenne;
+        }
+
+        // STATIC =>
+        // avec static on peut définir des choses directement disponible sur l'objet Student
+        static moyenne = 10
       }
 
       // je peux crée un object qui aurait comme prototype l'élément class Student
@@ -39,8 +72,23 @@
       const sara = new Student("Sara", "Kawa");
       console.log(patrick, sara);
 
-      // J'ajoute des notes à Patrick
-      patrick.setNotes([10, 16, 19]);
+      // J'ajoute des notes à Patrick avec ma propriété intégré
+      //   patrick.setNotes([6, 11, 9]);
+      //   sara.setNotes([10, 16, 19]);
+      // => SETTERS
+      // ou avec la méthode des SETTERS
+      patrick.notes = [19, 6, 10];
+      sara.notes = [10, 18, 19];
+
+      // Je regarde si chaque élève passe avec ma propriété canPass()
+      patrick.canPass();
+      console.log(patrick.canPass());
+      sara.canPass();
+      console.log(sara.canPass());
+
+      // => GETTERS
+      // je récupère le nom de mes èlèves grâce à mon GETTERS
+      console.log(patrick.name)
     </script>
   </head>
   <body></body>
