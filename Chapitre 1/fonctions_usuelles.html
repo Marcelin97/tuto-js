@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les fonctions usuelles</title>
+  </head>
+  <script>
+    // ==> ARRAY
+    // Array.prototype.at() ==> permet d'avoir accès à l'index d'un tableau
+    const notes = [12, 143, 15, 666];
+    let index1 = 2;
+    console.log(notes.at(index1));
+    // output 15
+    let index2 = 0;
+    console.log(notes.at(index2));
+    // output 12
+
+    // Array.prototype.concat() ==> fusionne deux ou plusieurs tableau et renvoi un nouveau tableau
+    const array1 = ["a", "b", "c"];
+    const array2 = ["d", "e", "f"];
+    const array3 = array1.concat(array2);
+
+    console.log(array3);
+    // Expected output: Array ["a", "b", "c", "d", "e", "f"]
+
+    // Array.prototype.filter() ==> crée et retourne un nouveau tableau contenant tous les éléments du tableau d'origine qui remplissent une condition déterminée par la fonction callback. 
+    // Permets de filtré les résultats
+    // utile si on a besoin de supprimé les éléments d'un tableau
+    const prix =[4, 10, 13, 20, 14, 15, 8]
+    const goodNotes = prix.filter(prix => prix >=10)
+    console.log(goodNotes)
+
+    // Array.prototype.find() ==> renvoie la valeur du premier élément trouvé dans le tableau qui respecte la condition donnée par la fonction de test passée en argument. Sinon, la valeur undefined est renvoyée.
+
+
+    // Array.prototype.forEach()
+
+    // Array.prototype.map() ==> utile si on a besoin de transformer un tableau
+    const persons = [
+        {firstname : "kirikou", lastname :"Miaous"},
+        {firstname : "kamel", lastname :"Deux"},
+        {firstname : "emile", lastname :"Poké"},
+        {firstname : "thomas", lastname :"Ninja"},
+    ]
+    const person = persons.map(person => `${person.firstname} ${person.lastname}`)
+    console.log(person)
+
+  </script>
+  <body></body>
+</html>
