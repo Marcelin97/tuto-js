@@ -8,38 +8,38 @@
     <script>
       let i = 0;
 
-      // while
-      //   tant que
+      // WHILE
+      // tant que
       //  qui vérifie du code jusqu'à ce qu'une condition de sortie soit vérifier
       while (i < 10) {
         console.log("bonjour" + i);
         i = i + 1;
       }
 
-      //   for
-      // boucle for
+      // FOR
+      // pour
       // pour itérer un certain nombre de fois
       // for(la valeur de départ; notre condition de sorti; notre opération de mise à jour)
       for (let index = 0; index < 10; index++) {
         console.log("bonjour");
       }
 
-      // parcourir un tableau
+      // Ex: parcourir un tableau
       const notes = [12, 12, 14, 15];
       for (let index = 0; index < notes.length; index++) {
         const element = notes[index];
         console.log(notes[index]);
       }
 
-      //   for in
+      // FOR IN
       // boucle for in
-      // qui itérer sur les clés d'un object ou sur les clés d'un tableaux
+      // qui itérer sur les clés d'un object ou sur les clés d'un tableau
       const age = [12, 12, 14, 15];
-      //
       for (let key in age) {
         console.log(key);
       }
-      // on peut utiliser la boucle for in avec un object
+
+      // on peut utilisé la boucle for in avec un object
       const numbers = {
         a: 44,
         b: 55,
@@ -51,15 +51,15 @@
         console.log(numbers[key]);
       }
 
-      // for of
+      // FOR OF
       // si on souhaite avoir uniquement les valeurs on utilise la boucle for of
       const numbersVoiture = [2, 3, 4];
       const person = {
         firstname: "kirikou",
         lastname: "prince",
       };
-      //   la boucle for of parcours bien mon tableau
-      //  par contre elle ne fonctionne pas sur un object donc sur la boucle person cela ne fonctionnera pas
+      // la boucle for of parcours bien mon tableau
+      // par contre elle ne fonctionne pas sur un object donc sur la boucle person cela ne fonctionnera pas
       for (const iterator of numbersVoiture) {
         console.log("nombre de voiture" + iterator);
       }

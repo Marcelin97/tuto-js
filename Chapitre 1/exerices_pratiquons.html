@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercices 4</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices pratiquons</title>
     <script>
+      /*
+        // Objectif 1 ==> 
         // crée une fonction qui permet de testé si un mot est un palindrome
         function isPalindrome(word) {
             // je crée une constante pour stocker mon mot
-            const reverseWord = word.split(' ').reverse().join('')
+            const reverseWord = word.join('')
             // que j'explose en tableau
-            
+            .split(' ')
             // j'inverse le tableau
-            // .reverse()
-            // .join('')
+            .reverse()
+            // le tableau inversé on va le rejoindre par des guillemets
+            .join('')
             return word.toUpperCase() === reverseWord.toUpperCase()
         }
 
@@ -27,13 +30,132 @@
 
         for (let word in words) {
             // console.log(word);
+            // je vérifie que mon mot à l'envers n'est pas différent du mot présent dans le tableau
             if (isPalindrome(word) !== words[word]) {
-                console.error(`isPalindrome ${word}`)
+                // sinon ce n'est pas un palindrome
+                console.error(`${word} n'est pas un palindrome `)
             }
         }
+        */
+
+      // Objectif 2 ==>
+      // calculer la moyenne de chaque élève, classé les élève dans l'ordre décroissant et affiché le top 3 des élèves
+      const students = [
+        {
+          name: "Marc",
+          notes: [10, 13, 3, 16],
+        },
+        {
+          name: "Mathieu",
+          notes: [1, 17, 13, 14],
+        },
+        {
+          name: "Olivier",
+          notes: [10, 7, 9, 8],
+        },
+        {
+          name: "Karim",
+          notes: [16, 14, 14, 6],
+        },
+        {
+          name: "Pierre",
+          notes: [13, 13, 20, 10],
+        },
+        {
+          name: "Sophie",
+          notes: [9, 13, 11, 12],
+        },
+        {
+          name: "Myriam",
+          notes: [16, 14, 9, 19],
+        },
+      ];
+
+      // je crée une fonction capable de calculer la moyenne par élève.
+      // on a besoin de connaître la taille du tableau notes
+      // on aura besoin de connaître la sommes des notes
+      const moyenne = (notes) => {
+        let sum = 0;
+        // je fais une boucle sur mon tableau
+        for (let note of notes) {
+        // on ajoute la valeur suivante à chaque itération
+          sum = sum + note;
+        }
+        return sum / notes.length;
+      };
+
+      // je dois faire une boucle pour parcourir l'ensemble des objects
+      // je fais une boucle for, car je veux uniquement les valeurs
+      for (const student of students) {
+        student.moyenne = moyenne(student.notes);
+      }
+      console.log(students);
+
+      // je tri mon tableau dans l'ordre décroissant en fonction des moyennes des étudiants
+      // en paramètre ma fonction prend un étudiant "a" et un étudiant "b"
+      students.sort(function (a, b) {
+        return b.moyenne - a.moyenne;
+      });
+      console.log(students);
+
+      // Obtenir le top 3 des étudiants
+      const topStudent = (student) => {
+        return `${student.name} avec une moyenne de ${student.moyenne}`;
+      };
+      console.log(`
+    1er :${topStudent(students[0])}
+    2nd :${topStudent(students[1])}
+    3e : ${topStudent(students[2])}
+    `);
+
+      // Objectif ==> Nous allons créer un système capable de calculer la fréquence des mots dans une chaîne de caractère. L'objectif sera dans un premier temps d'obtenir un objet qui contiendra en propriété le mot, et en valeur le nombre d’occurrence ({bonjour: 3, maison: 2})
+      const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres.`;
+
+      // crée un objet qui contient les fréquences
+      // 1 étape => je crée un object vide
+      const frequencies = {};
+
+      // replace()
+      // remplacé les caractères spéciaux
+      //   2 étape => je mets tous les mots de la phrase en minuscule
+      let phraseCleaned = phrase.toLowerCase()
+      console.log(phraseCleaned)
+      // 3 étape => je supprime les caractères spéciaux
+      const characters = [",", "?", ":", "!", "«", "»", "…", "’"];
+      for (let character of characters) {
+        phraseCleaned = phraseCleaned.replaceAll(character, " ");
+      }
+
+      // split
+      // puis je vais découpé la phrase en fonction de l'espace
+      const words = phraseCleaned.split(' ')
+      console.log(words);
+
+      for (let word of words) {
+        if (word !== '') {
+            if (frequencies[word]) {
+            frequencies[word]++
+        }else{
+            frequencies[word] = 1
+        }
+        }
+      }
+      console.log(frequencies);
+      const frequenciesArray = []
+      for (const iterator in frequencies) {
+        frequenciesArray.push({
+            work: iterator,
+            count: frequencies[iterator]
+      })
+      }
+      console.log(frequenciesArray);
+
+    //   je tri mon tableau dans l'ordre décroissant
+    frequenciesArray.sort(function (a, b) {
+        return b.count - a.count;
+      });
+      console.log(frequenciesArray);
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

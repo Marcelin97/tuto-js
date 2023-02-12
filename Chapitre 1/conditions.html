@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les conditions</title>
     <script>
-      //   CHAPITRE 2 : LES CONDITIONS
+      // ==> LES CONDITIONS
       const age = 18;
       if (age >= 18) {
         console.log("Vous êtes majeur");
@@ -33,12 +33,12 @@
       // l'inversion d'une condition avec !
       const peutConduireFrance = pays === "Fr" && tonAge >= 18;
       const peutConduireUsa = pays === "USA" && tonAge >= 16;
-      // j'inverse ma condition ligne 42
+      // j'inverse ma condition
       if ((pays !== "Fr" || tonAge >= 18) && (pays !== "USA" || tonAge >= 16)) {
         console.log("Vous n'avez pas le droit de conduire");
       }
 
-      // La 3eme manière de faire une condition avec le switch case
+      // La 3 manière de faire une condition avec le switch case
       // entre parenthèse je mets la valeur que je veux vérifier
       switch (pays) {
         // case puis la valeur attendu

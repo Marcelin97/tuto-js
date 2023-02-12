@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les classes</title>
+    <script>
+      const a = { a: 2 };
+
+      // ==> str >> peut avoir ses propres méthodes et ensuite elle a un prototype qui contient des méthodes particulière et ce prototype aura lui même les méthodes de l'objet
+      // ==> str >> String.prototype >> Object.prototype
+      // ==> c'est ce qu'on appel l'héritage
+      // Cet objet [[Prototype]] peut être obtenu à l'aide de la méthode Object.getPrototypeOf
+
+      // on peut créer ses propres prototype grâce à la syntaxe des classes
+      // les prototype sont des fonctions
+      // si je regarde le typeof Student c'est une fonction
+      class Student {
+        // on a la possibilité de définir des propriétés
+        // on imagine que tous nos étudiants sont dans la meme école
+        ecole = "Jules ferry";
+
+        // j'aimerais que les élèves définissent un nom et un prénom
+        // pour définir un constructeur je commence par écrire constructor(){} un peu comme une fonction
+        constructor(firstname, lastname) {
+          this.firstname = firstname;
+          this.lastname = lastname;
+        }
+
+        // on imagine qu'on veut ajouter des notes à nos élèves
+        setNotes(notes) {
+          this.notes = notes;
+        }
+      }
+
+      // je peux crée un object qui aurait comme prototype l'élément class Student
+      const patrick = new Student("Patrick", "Martin");
+      const sara = new Student("Sara", "Kawa");
+      console.log(patrick, sara);
+
+      // J'ajoute des notes à Patrick
+      patrick.setNotes([10, 16, 19]);
+    </script>
+  </head>
+  <body></body>
+</html>

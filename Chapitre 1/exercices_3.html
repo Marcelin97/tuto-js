@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercices 3 - Les fonctions</title>
     <script>
-        // On crée un nombre aléatoire entre 0 et 10,
-        // ensuite on demandera à l'utilisateur de deviner ce nombre avec 3 essais.
-        // Pour créer la logique on utilisera des fonctions spécifiques
+      // Objectif 1 ==>
+      // On crée un nombre aléatoire entre 0 et 10,
+      // ensuite on demande à l'utilisateur de deviner ce nombre avec 3 essais.
 
-        const solution = Math.floor(Math.random() * 11)
-        console.log(solution);
-        function isRight(nombreChoisi) {
-          return solution === nombreChoisi
-        }
+      const solution = Math.floor(Math.random() * 11);
+      console.log(solution);
+      function isRight(nombreChoisi) {
+        return solution === nombreChoisi;
+      }
 
-        function guess() {
-          const number = prompt('Entrez un nombre') * 1
-          return isRight(number)
+      function guess() {
+        const number = prompt("Entrez un nombre") * 1;
+        return isRight(number);
+      }
+      // je boucle sur les 3 tentative
+      for (i = 0; i < 3; i++) {
+        if (guess()) {
+          console.log("Bravo !");
+          break;
+        } else if (i === 2) {
+          console.log("Vous avez perdu :(");
         }
-        // je boucle sur les 3 tentative
-        for (i = 0; i < 3; i++) {
-          if (guess()) {
-            console.log('Bravo !')
-            break
-          } else if (i === 2) {
-            console.log('Vous avez perdu :(')
-          }
       }
     </script>
   </head>
